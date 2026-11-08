@@ -127,13 +127,34 @@ section.alt { background: var(--bg2); border-block: 1px solid var(--line); }
 .cert .issuer { font: 400 .9rem/1.6 var(--body); color: var(--muted); }
 
 /* Presentations */
-.talks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
-.talk { min-width: 0; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); }
-.talk .frame { border: 0; border-bottom: 1px solid var(--line); }
-.talk .info { padding: 1.6rem 1.6rem 1.8rem; }
-.talk .info h3 { font-size: clamp(1.35rem, 2.4vw, 1.75rem); }
-.talk .who { font: italic 400 .98rem/1.4 var(--display); color: var(--fg); }
+<section id="conferences" class="wrap" style="padding: 4rem 0; border-bottom: 1px solid var(--line);">
+  <h2>Conference Presentations & Publications</h2>
+  
+  <div class="conference-item" style="margin-top: 2rem; display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: start;">
+    
+    <!-- Conference Poster Thumbnail / Picture -->
+    <figure style="margin: 0; padding: 4px; background: #fbf6e8; border: 1px solid var(--line);">
+      <a href="documents/conference-paper.pdf" target="_blank">
+        <img src="assets/poster-thumb.jpg" alt="AAG Annual Meeting Conference Poster Thumbnail" style="width: 100%; height: auto; display: block;">
+      </a>
+    </figure>
 
+    <!-- Conference Details and PDF Button -->
+    <div>
+      <span style="font: 500 .76rem/1 var(--mono); color: var(--accent-text); text-transform: uppercase; letter-spacing: .1em;">March 2026 • San Francisco, CA</span>
+      <h3 style="font: 700 1.25rem/1.3 var(--display); margin: .4rem 0 .6rem;">Spatiotemporal Analysis of Urban Heat Island Dynamics in the Texas Triangle</h3>
+      <p style="color: var(--muted); margin: 0 0 1rem; font-size: .95rem;">
+        Presented at the Association of American Geographers (AAG) Annual Meeting. Analyzed multi-decadal urban thermal patterns using remote sensing and GIS modeling workflows.
+      </p>
+      
+      <!-- PDF Download Button -->
+      <a href="documents/conference-paper.pdf" target="_blank" class="btn primary" style="font-size: .72rem; padding: .6rem 1rem;">
+        View Conference Paper (PDF)
+      </a>
+    </div>
+
+  </div>
+</section>
 /* Cartography gallery */
 .gallery { columns: 3 17rem; column-gap: 1.5rem; }
 .map { break-inside: avoid; margin: 0 0 1.5rem; background: var(--surface); border: 1px solid var(--line); }
