@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fabiha Shafi Mim | Geospatial Portfolio</title>
+<meta name="description" content="Fabiha Shafi Mim: geospatial engineer with an MS in Geospatial Science. GIS, remote sensing and cartography projects, conference posters and resume.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an ancient-cream chart table with a faint building-footprint city map fixed behind framed map plates. Terracotta is the single accent. */
+:root {
+  --bg: #50517d;
+  --bg2: rgba(255, 255, 255, .035);
+  --surface: #0e0e0e;
+  --line: #2c2a26;
+  --grid: rgba(255, 255, 255, .05);
+  --fg: #e3e8e5;
+  --muted: #deddba;
+  --accent: #d9826e;
+  --accent-text: #eb9c84;
+  --on-accent: #0a0a0a;
+  --ok: #6fcf97;
+  --bar-bg: rgba(0, 0, 0, .92);
+  --cbg: #b9cbb1;
+  --cfg: #13302a;
+  --cmuted: #2d4a3f;
+  --caccent: #7d3828;
+  --cline: #8ea887;
+  --display: Georgia, "Times New Roman", serif;
+  --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html { background: var(--bg); }
+body::after { content: ""; opacity: .8; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='1000' viewBox='0 0 1600 1000' preserveAspectRatio='xMidYMid slice'%3E%3Cpath d='M-20 600Q300 690 460 745Q620 800 800 850Q980 900 1140 940Q1300 980 1460 965L1620 950' fill='none' stroke='%231d1e3f' stroke-opacity='.35' stroke-width='40' stroke-linecap='round'/%3E%3Cg fill='none' stroke='%23b7b0f2' stroke-opacity='.2' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M-20 980Q380 560 470 445Q560 330 720 235Q880 140 1015 60L1150 -20'/%3E%3Cpath d='M300 -20Q420 300 400 500Q380 700 450 860L520 1020'/%3E%3C/g%3E%3Crect x='119.0' y='153.0' width='62' height='34' transform='rotate(-14 150 170)' fill='%23b7b0f2' fill-opacity='.28'/%3E%3Crect x='536.0' y='80.0' width='48' height='30' transform='rotate(20 560 95)' fill='%237fd6e0' fill-opacity='.28'/%3E%3Crect x='187.0' y='504.0' width='56' height='32' transform='rotate(-8 215 520)' fill='%238f62d8' fill-opacity='.28'/%3E%3Crect x='790.0' y='313.0' width='60' height='34' transform='rotate(12 820 330)' fill='%236f90e6' fill-opacity='.28'/%3E%3Crect x='1053.0' y='114.0' width='54' height='32' transform='rotate(22 1080 130)' fill='%23d9a8f0' fill-opacity='.28'/%3E%3Cpath d='M1669 640L1672 681L1664 723L1645 762L1617 797L1581 828L1540 854L1495 874L1449 889L1401 901L1354 908L1307 913L1260 914L1213 912L1166 907L1120 897L1076 883L1035 864L997 841L964 813L936 783L914 749L897 714L885 678L879 640L878 602L883 563L894 524L913 487L938 452L971 420L1011 393L1057 372L1107 358L1159 351L1210 351L1260 357L1307 368L1351 382L1391 398L1430 416L1467 434L1503 454L1539 476L1574 501L1607 530L1635 563L1656 600Z' fill='%232f8f93' fill-opacity='.08' stroke='%239fe3e6' stroke-opacity='.24' stroke-width='7'/%3E%3Cpath d='M1637 640L1639 677L1632 715L1615 750L1589 782L1556 810L1518 833L1477 851L1434 865L1390 875L1347 882L1303 887L1260 888L1217 886L1174 881L1131 872L1091 860L1052 842L1018 821L987 797L962 769L941 739L926 707L915 674L909 640L908 605L913 570L923 536L940 502L964 470L994 441L1031 417L1073 398L1119 385L1167 379L1214 379L1260 385L1303 394L1343 407L1381 422L1416 437L1450 454L1484 472L1517 492L1550 515L1579 541L1605 571L1625 604Z' fill='%2305323d' fill-opacity='.5' stroke='%233fb3bd' stroke-opacity='.32' stroke-width='2'/%3E%3Cpath d='M1458 610L1451 638L1436 664L1415 686L1389 705L1361 722L1331 735L1299 745L1265 752L1230 755L1195 753L1160 747L1128 736L1099 722L1073 704L1051 684L1033 661L1019 637L1010 610L1009 582L1016 554L1033 529L1058 507L1089 490L1125 480L1161 475L1196 474L1230 475L1262 478L1295 483L1328 489L1361 499L1393 512L1421 531L1443 555L1456 582Z' fill='%231b8ea0' fill-opacity='.12'/%3E%3C/svg%3E") center / cover no-repeat; }
+body { margin: 0; background: transparent; color: var(--fg); font: 400 1rem/1.65 var(--body); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bar-bg); }
+[id] { scroll-margin-top: 5rem; }
+a { color: inherit; }
+img { max-width: 100%; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: 1224px; margin-inline: auto; padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bar-bg); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem 2rem; padding-block: .9rem; }
+.brand { font: 700 1.05rem/1 var(--display); text-decoration: none; white-space: nowrap; }
+.bar nav { display: flex; gap: 1.5rem; overflow-x: auto; scrollbar-width: none; font: 600 .76rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase; }
+.bar nav::-webkit-scrollbar { display: none; }
+.bar nav a { text-decoration: none; color: var(--muted); white-space: nowrap; padding-block: .3rem; }
+.bar nav a:hover { color: var(--accent-text); }
+.bar nav a.cta { color: var(--accent-text); border-bottom: 1px solid var(--accent); }
+
+/* Buttons and chips */
+.btn { display: inline-block; padding: .9rem 1.4rem; font: 600 .8rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--accent); transition: background .2s, color .2s; }
+.btn.primary { background: var(--accent); color: var(--on-accent); }
+.btn.primary:hover { background: transparent; color: var(--accent-text); }
+.btn.ghost { color: var(--accent-text); }
+.btn.ghost:hover { background: var(--accent); color: var(--on-accent); }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .45rem; }
+.chips li { font: 500 .78rem/1 var(--body); letter-spacing: .02em; padding: .45rem .65rem; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
+
+/* Hero */
+.hero { border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+.hero .wrap { position: relative; z-index: 1; }
+.hero .wrap { padding-block: 5rem 5.5rem; }
+.status { display: inline-flex; align-items: center; gap: .65rem; padding: .55rem .85rem; border: 1px solid var(--line); background: var(--surface); font: 600 .74rem/1.2 var(--body); letter-spacing: .1em; text-transform: uppercase; }
+.status i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(111, 207, 151, .22); flex: none; }
+.hero h1 { font: 700 clamp(3rem, 9vw, 7.2rem)/.98 var(--display); letter-spacing: -.015em; margin: 1.4rem 0 0; text-wrap: balance; }
+.role { font: italic 400 clamp(1.15rem, 2.4vw, 1.65rem)/1.35 var(--display); color: var(--accent-text); margin: 1.1rem 0 0; }
+.lead { max-width: 44rem; margin: 1.4rem 0 0; color: var(--muted); font-size: 1.12rem; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.2rem; }
+.collage { position: relative; aspect-ratio: 1 / 1.04; width: 100%; max-width: 560px; justify-self: end; }
+.collage figure { position: absolute; margin: 0; padding: .55rem; background: #fbf6e8; border: 1px solid var(--line); box-shadow: 0 24px 40px -20px rgba(60, 40, 10, .45); line-height: 0; }
+.collage img { width: 100%; height: auto; display: block; }
+.c1 { width: 80%; left: 0; top: 0; transform: rotate(-2.2deg); }
+.c2 { width: 64%; right: 0; top: 34%; transform: rotate(2.4deg); z-index: 2; }
+.c3 { width: 36%; left: 5%; bottom: 0; transform: rotate(-3deg); z-index: 3; }
+
+/* Stats */
+.stats { border-bottom: 1px solid var(--line); background: var(--surface); }
+.statgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.stat { padding: 1.6rem 1.4rem; border-left: 1px solid var(--line); min-width: 0; }
+.stat:first-child { border-left: 0; padding-left: 0; }
+.stat b { display: block; font: 500 clamp(2rem, 4vw, 2.9rem)/1 var(--body); letter-spacing: -.02em; color: var(--accent-text); }
+.stat span { display: block; margin-top: .5rem; font: 400 .74rem/1.45 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+
+/* Sections */
+section.block { padding-block: 5rem; }
+section.alt { background: var(--bg2); border-block: 1px solid var(--line); }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 1rem 3rem; flex-wrap: wrap; margin-bottom: 2.75rem; }
+.sec-head .k { font: 500 .75rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-text); }
+.sec-head h2 { font: 700 clamp(2rem, 4.5vw, 3.2rem)/1.05 var(--display); letter-spacing: -.01em; margin: .7rem 0 0; text-wrap: balance; }
+.sec-head p { margin: 0; max-width: 28rem; color: var(--muted); }
+
+/* Frames */
+.frame { display: block; width: 100%; padding: 0; border: 1px solid var(--line); background: var(--bg2); cursor: zoom-in; line-height: 0; overflow: hidden; position: relative; text-decoration: none; }
+.frame img { width: 100%; height: auto; display: block; transition: transform .5s ease; }
+.frame:hover { border-color: var(--accent-text); }
+.frame:hover img { transform: scale(1.02); }
+.frame .go { position: absolute; left: 0; right: 0; bottom: 0; padding: .85rem 1rem; background: var(--bar-bg); border-top: 1px solid var(--line); font: 600 .76rem/1.4 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--accent-text); }
+
+/* Featured work */
+.feature { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 3rem; align-items: center; padding: 1.5rem; background: var(--surface); border: 1px solid var(--line); }
+.feature + .feature { margin-top: 2rem; }
+.feature.rev .shots { order: 2; }
+.shots { min-width: 0; display: flex; flex-direction: column; gap: .75rem; }
+.thumbs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.info { min-width: 0; padding-block: .5rem; padding-right: 1rem; display: flex; flex-direction: column; gap: 1.1rem; align-items: flex-start; }
+.badge { font: 500 .72rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-text); }
+.info h3 { margin: 0; font: 700 clamp(1.6rem, 3vw, 2.25rem)/1.1 var(--display); letter-spacing: -.01em; text-wrap: balance; }
+.info p { margin: 0; color: var(--muted); }
+.points { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .7rem; }
+.points li { position: relative; padding-left: 1.4rem; color: var(--fg); }
+.points li::before { content: ""; position: absolute; left: 0; top: .6em; width: .5rem; height: .5rem; background: var(--accent); transform: rotate(45deg); }
+
+/* Credentials */
+.certs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+.cert { min-width: 0; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); }
+.cert .frame { border: 0; border-bottom: 1px solid var(--line); }
+.cert .frame img { aspect-ratio: 4 / 3; object-fit: cover; object-position: top; }
+.cert .frame img.fit { object-fit: contain; object-position: center; }
+.cert .info { padding: 1.6rem 1.6rem 1.8rem; }
+.cert .info h3 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
+.cert .issuer { font: 400 .9rem/1.6 var(--body); color: var(--muted); }
+
+/* Presentations */
+.talks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+.talk { min-width: 0; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); }
+.talk .frame { border: 0; border-bottom: 1px solid var(--line); }
+.talk .info { padding: 1.6rem 1.6rem 1.8rem; }
+.talk .info h3 { font-size: clamp(1.35rem, 2.4vw, 1.75rem); }
+.talk .who { font: italic 400 .98rem/1.4 var(--display); color: var(--fg); }
+
+/* Cartography gallery */
+.gallery { columns: 3 17rem; column-gap: 1.5rem; }
+.map { break-inside: avoid; margin: 0 0 1.5rem; background: var(--surface); border: 1px solid var(--line); }
+.map .frame { border: 0; border-bottom: 1px solid var(--line); }
+.map figcaption { padding: 1.1rem 1.2rem 1.3rem; display: flex; flex-direction: column; gap: .55rem; }
+.map h3 { margin: 0; font: 700 1.25rem/1.15 var(--display); }
+.map p { margin: 0; color: var(--muted); font-size: .95rem; }
+.map .tag { font: 500 .7rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-text); }
+.map .credit { color: var(--fg); font-style: italic; }
+
+/* Background */
+.about { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 3rem 4rem; }
+.about p.big { margin: 0; font: 400 clamp(1.2rem, 2.2vw, 1.5rem)/1.5 var(--display); max-width: 36rem; }
+.about .more { margin-top: 1.75rem; }
+.exp { display: flex; flex-direction: column; gap: 1.1rem; }
+.about p.big { margin-top: 2.25rem; padding-top: 1.75rem; border-top: 1px solid var(--line); }
+.exp div { min-width: 0; }
+.exp h4 { margin: 0; font: 700 1.05rem/1.3 var(--display); }
+.exp p { margin: .15rem 0 0; color: var(--muted); font-size: .95rem; }
+.skillset { display: flex; flex-direction: column; gap: 1.6rem; min-width: 0; }
+.skillset h4 { margin: 0 0 .7rem; font: 500 .74rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+/* Contact */
+.contact { background: var(--cbg); color: var(--cfg); }
+.contact .wrap { padding-block: 5.5rem 2rem; }
+.contact .k { font: 500 .75rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--caccent); }
+.contact h2 { font: 700 clamp(2.2rem, 6vw, 4.4rem)/1.02 var(--display); letter-spacing: -.015em; margin: .8rem 0 0; max-width: 18ch; text-wrap: balance; }
+.contact p { max-width: 36rem; margin: 1.4rem 0 0; color: var(--cmuted); font-size: 1.1rem; }
+.contact .mail { display: inline-block; margin-top: 2rem; font: 700 clamp(1.3rem, 3.4vw, 2.2rem)/1.2 var(--display); color: var(--cfg); text-decoration: none; border-bottom: 2px solid var(--caccent); overflow-wrap: anywhere; }
+.contact .mail:hover { color: var(--caccent); }
+.contact .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.2rem; }
+.contact .btn { border-color: var(--cfg); }
+.contact .btn.primary { background: var(--cfg); color: var(--cbg); }
+.contact .btn.primary:hover { background: transparent; color: var(--cfg); }
+.contact .btn.ghost { color: var(--cfg); }
+.contact .btn.ghost:hover { background: var(--cfg); color: var(--cbg); }
+.reach { list-style: none; margin: 2.4rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.reach li { min-width: 0; }
+.reach a { display: flex; align-items: center; gap: .95rem; height: 100%; padding: 1.15rem 1.2rem; border: 1px solid var(--cline); color: var(--cfg); text-decoration: none; transition: border-color .2s, transform .2s; }
+.reach a:hover { border-color: var(--caccent); transform: translateY(-2px); }
+.reach .ic { flex: none; line-height: 0; }
+.reach .ic svg { width: 2rem; height: 2rem; display: block; }
+.reach .t { min-width: 0; }
+.reach b { display: block; font: 600 .95rem/1.3 var(--body); }
+.reach i { display: block; margin-top: .15rem; font: 400 .85rem/1.4 var(--body); font-style: normal; color: var(--cmuted); overflow-wrap: anywhere; }
+.readhere { display: inline-block; margin-top: 1.6rem; font: 600 .8rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--caccent); text-decoration: none; border-bottom: 1px solid var(--caccent); padding-bottom: .2rem; }
+.foot { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 4.5rem; padding-top: 1.5rem; border-top: 1px solid var(--cline); font: 500 .8rem/1.5 var(--body); letter-spacing: .04em; color: var(--cmuted); }
+
+/* Resume view */
+.back { display: inline-block; margin-top: 2rem; font: 600 .78rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--accent-text); text-decoration: none; }
+.back:hover { text-decoration: underline; }
+#viewResume .resume { padding-bottom: 5rem; border-top: 0; }
+/* Resume */
+.resume { border-top: 1px solid var(--line); padding-block: 4rem 2rem; }
+.resume-head { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.resume-head h2 { font: 700 clamp(1.8rem, 4vw, 2.8rem)/1.05 var(--display); letter-spacing: -.02em; margin: 0; }
+.button { display: inline-block; padding: .8rem 1.2rem; border: 1px solid var(--accent); color: var(--accent-text); text-decoration: none; font: 600 .8rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase; }
+.button:hover { background: var(--accent); color: var(--on-accent); }
+.res-row { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: 1rem 3rem; padding-block: 2rem; border-top: 1px solid var(--line); }
+.res-row > h3 { margin: 0; font: 500 .78rem/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.entries { display: flex; flex-direction: column; gap: 1.75rem; min-width: 0; }
+.entry { min-width: 0; }
+.entry .line { display: flex; justify-content: space-between; gap: .5rem 1.5rem; flex-wrap: wrap; align-items: baseline; }
+.entry h4 { margin: 0; font: 700 1.15rem/1.3 var(--display); letter-spacing: -.01em; }
+.entry .when2 { font: 400 .78rem/1.4 var(--mono); letter-spacing: .04em; color: var(--accent-text); white-space: nowrap; }
+.entry .org { margin: .15rem 0 0; color: var(--muted); font-size: .95rem; }
+.entry ul { margin: .75rem 0 0; padding-left: 1.1rem; color: var(--muted); max-width: 46rem; }
+.entry li + li { margin-top: .35rem; }
+.entry p.note { margin: .25rem 0 0; color: var(--muted); font-size: .95rem; }
+.skills { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: .35rem 1.5rem; margin: 0; }
+.skills dt { font: 500 .78rem/1.6 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.skills dd { margin: 0 0 .75rem; }
+@media (max-width: 820px) { .res-row { grid-template-columns: minmax(0, 1fr); gap: 1rem; } .skills { grid-template-columns: minmax(0, 1fr); } .skills dd { margin-bottom: 1rem; } }
+
+
+
+/* Lightbox */
+.lb { position: fixed; inset: 0; z-index: 60; background: rgba(14, 18, 27, .96); display: flex; align-items: center; justify-content: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.lb img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.lb #lbPdf { position: absolute; left: 50%; bottom: max(16px, env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); padding: .8rem 1.2rem; background: var(--bg); color: var(--fg); border: 1px solid var(--accent-text); font: 600 .78rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+.lb #lbPdf[hidden] { display: none; }
+.lb #lbPdf:hover { color: var(--accent-text); }
+.lb button { position: absolute; top: max(12px, env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); background: var(--bg); color: var(--fg); border: 1px solid var(--line); font: 600 .78rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase; padding: .75rem 1rem; cursor: pointer; }
+.lb button:hover { color: var(--accent-text); border-color: var(--accent-text); }
+
+/* Motion: hero load-in, scroll reveals, heading rule, nav highlight */
+.bar nav a { border-bottom: 1px solid transparent; }
+.bar nav a.on { color: var(--fg); border-bottom-color: var(--accent); }
+.sec-head h2::after { content: ""; display: block; width: 3.5rem; height: 3px; margin-top: 1rem; background: var(--accent); transform-origin: left; transition: transform .9s cubic-bezier(.2, .7, .2, 1) .3s; }
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  .hero .wrap > div > * { animation: rise .9s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero .wrap > div > :nth-child(1) { animation-delay: .05s; }
+  .hero .wrap > div > :nth-child(2) { animation-delay: .15s; }
+  .hero .wrap > div > :nth-child(3) { animation-delay: .25s; }
+  .hero .wrap > div > :nth-child(4) { animation-delay: .35s; }
+  .hero .wrap > div > :nth-child(5) { animation-delay: .45s; }
+  .js .rv { opacity: .3; transform: translateY(28px); transition: opacity .9s ease var(--d, 0s), transform .9s cubic-bezier(.2, .7, .2, 1) var(--d, 0s); }
+  .js .rv.in { opacity: 1; transform: none; }
+  .js .sec-head.rv:not(.in) h2::after { transform: scaleX(0); }
+}
+
+@media (max-width: 960px) {
+  .hero .wrap { padding-block: 3rem 3.5rem; }
+  .feature, .about { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .feature.rev .shots { order: 0; }
+  .info { padding-right: 0; }
+  .talks, .certs { grid-template-columns: minmax(0, 1fr); }
+  .reach { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .statgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat:nth-child(3) { border-left: 0; padding-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  section.block { padding-block: 3.5rem; }
+}
+@media (max-width: 560px) { .reach { grid-template-columns: minmax(0, 1fr); } .feature { padding: 1rem; } .bar .wrap { padding-block: .75rem; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .frame img { transition: none; } }
+
+
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="bar"><div class="wrap">
+  <a class="brand" href="#top">Fabiha Shafi Mim</a>
+  <nav aria-label="Sections">
+    <a href="#work">Work</a><a href="#presentations">Presentations</a><a href="#cartography">Personal Projects</a><a href="#credentials">Certifications</a><a href="#resume">Resume</a><a class="cta" href="#contact">Contact</a>
+  </nav>
+</div></div>
+
+<div id="viewHome">
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <span class="status"><i></i>Open to GIS and remote sensing roles</span>
+    <h1>Fabiha Shafi Mim</h1>
+    <p class="role">Geospatial Engineer: GIS, Remote Sensing And Cartography</p>
+    <p class="lead">Welcome to my portfolio! I transform satellite imagery and spatial data into meaningful maps, advanced geospatial modeling, and actionable insights to support urban planning, transportation modeling, site suitability analysis, informed decision-making and sustainable land management.</p>
+    <div class="actions">
+      <a class="btn primary" href="#work">See my work</a>
+      <a class="btn ghost" href="#resume">Resume</a>
+      <a class="btn ghost" href="#contact">Contact</a>
+    </div>
+  </div>
+</div></header>
+
+<section class="block" id="work"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="k">Featured work</span><h2>Applied and Research Projects</h2></div>
+    <p>Real-world and research mapping, where spatial analysis supports a decision.</p>
+  </div>
+
+  <article class="feature">
+    <div class="shots">
+      <button class="frame" data-full="images/forest-change-2015-2026.jpg" data-alt="Side-by-side aerial images of the planting area from April 2015 and February 2026, with a red arrow marking forest cover loss in the northeast polygon" aria-label="View the 2015 and 2026 comparison at full size">
+        <img src="images/forest-change-2015-2026.jpg" alt="Side-by-side aerial images of the planting area from April 2015 and February 2026, with a red arrow marking forest cover loss in the northeast polygon" width="2000" height="1545" loading="lazy">
+      </button>
+      <div class="thumbs">
+        <button class="frame" data-full="images/forest-under-review.jpg" data-alt="Aerial map of the planting polygons with the northeast polygon labeled Under Review and built-up infrastructure outlined in orange" aria-label="View the under review map at full size">
+          <img src="images/forest-under-review.jpg" alt="Aerial map of the planting polygons with the northeast polygon labeled Under Review and built-up infrastructure outlined in orange" width="2000" height="1545" loading="lazy">
+        </button>
+        <button class="frame" data-full="images/forest-boundary-comparison.jpg" data-alt="Two maps comparing the provided boundary of the original parcel in purple with the proposed boundary of the eligible planting area in green" aria-label="View the boundary comparison at full size">
+          <img src="images/forest-boundary-comparison.jpg" alt="Two maps comparing the provided boundary of the original parcel in purple with the proposed boundary of the eligible planting area in green" width="2000" height="1546" loading="lazy">
+        </button>
+      </div>
+    </div>
+    <div class="info">
+      <span class="badge">Professional project</span>
+      <h3>Spatial Due Diligence Support for a Forest Planting Project</h3>
+      <p>Mapping support for a real forest planting project, checking whether the proposed planting land was eligible.</p>
+      <ul class="points">
+        <li>Compared planting polygons against aerial imagery from April 2015 and February 2026 to find forest cover loss.</li>
+        <li>Marked a polygon as under review and outlined built-up infrastructure inside the planting area.</li>
+        <li>Drew a proposed eligible planting boundary and compared it with the original parcel.</li>
+      </ul>
+      <ul class="chips"><li>Imagery analysis</li><li>Change detection</li><li>Boundary mapping</li><li>Due diligence</li></ul>
+      <p class="credit" style="font-style:italic;color:var(--fg)">Cartographer: Fabiha Mim</p>
+    </div>
+  </article>
+
+  <article class="feature rev">
+    <div class="shots">
+      <a class="frame" href="https://storymaps.arcgis.com/stories/3d1d0c814ef94132b20e4b1e54ab2ae7" target="_blank" rel="noopener" aria-label="Open Mapping Smarter Texas on ArcGIS StoryMaps">
+        <img src="images/mapping-smarter-texas.jpg" alt="3D map of downtown Dallas with gray extruded buildings, the Trinity River and labeled landmarks stretching toward Fort Worth" width="2576" height="1717" loading="lazy">
+        <span class="go">Open the story map &rarr;</span>
+      </a>
+    </div>
+    <div class="info">
+      <span class="badge">Research &middot; ArcGIS StoryMap</span>
+      <h3>Mapping Smarter Texas</h3>
+      <p>Spatial intelligence for thermal hotspot mapping, and opportunities for resilient urban design in Texas.</p>
+      <ul class="points">
+        <li>Maps where urban heat concentrates and what it means for city design.</li>
+        <li>Published as an interactive ArcGIS StoryMap, with a 3D view of downtown Dallas.</li>
+      </ul>
+      <ul class="chips"><li>Thermal hotspot mapping</li><li>Urban heat</li><li>3D mapping</li><li>StoryMaps</li></ul>
+      <a class="btn primary" href="https://storymaps.arcgis.com/stories/3d1d0c814ef94132b20e4b1e54ab2ae7" target="_blank" rel="noopener">Open the story map</a>
+      <p class="credit" style="font-style:italic;color:var(--fg)">Cartographer: Fabiha Mim</p>
+    </div>
+  </article>
+</div></section>
+
+<section class="block alt" id="presentations"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="k">Presentations</span><h2>Conference Presentations</h2></div>
+    <p>Two conference posters on flooding in Bangladesh and urban heat in Texas. Click a poster to read it in full.</p>
+  </div>
+  <div class="talks">
+    <article class="talk">
+      <button class="frame" data-full="images/geohog.jpg" data-alt="Research poster on operational flood hazard mapping in Bangladesh from 2020 to 2024, with study area maps, yearly flood maps and a bar chart of affected population" aria-label="View the flood hazard poster at full size">
+        <img src="images/geohog.jpg" alt="Research poster on operational flood hazard mapping in Bangladesh from 2020 to 2024, with study area maps, yearly flood maps and a bar chart of affected population" width="2400" height="1800" loading="lazy">
+      </button>
+      <div class="info">
+        <span class="badge">Poster &middot; GSA South-Central Section 2025</span>
+        <h3>Operational Flood Hazard Mapping and Impact Assessment in Bangladesh</h3>
+        <p>An operational approach to mapping flood extent and affected cropland and population from 2020 to 2024, using Sentinel-1, MODIS and Google Earth Engine. The 2020 flood was the most severe, affecting 499,820 hectares and displacing over 4 million people.</p>
+        <p class="who">Fabiha Shafi Mim and Mohamed H. Aly, University of Arkansas</p>
+        <ul class="chips"><li>Sentinel-1</li><li>MODIS</li><li>Google Earth Engine</li><li>Flood mapping</li></ul>
+        <a class="btn ghost" href="https://studio.m-anage.com/gsa/2025SC/webprogram/Paper408867.html" target="_blank" rel="noopener">View the conference abstract</a>
+      </div>
+    </article>
+
+    <article class="talk">
+      <button class="frame" data-full="images/Fabiha_SWAG.jpg" data-alt="Research poster on land surface temperature dynamics in Dallas, Houston and San Antonio, Texas from 2020 to 2024, with Landsat maps, regression plots and conclusions" aria-label="View the Texas land surface temperature poster at full size">
+        <img src="images/Fabiha_SWAG.jpg" alt="Research poster on land surface temperature dynamics in Dallas, Houston and San Antonio, Texas from 2020 to 2024, with Landsat maps, regression plots and conclusions" width="2400" height="1800" loading="lazy">
+      </button>
+      <div class="info">
+        <span class="badge">Poster &middot; SWAAG Conference 2025</span>
+        <h3>Landsat Study of Land Surface Temperature Dynamics in Texas</h3>
+        <p>Urban heating in Houston, San Antonio and Dallas from 2020 to 2024, using Landsat 8 and 9 imagery, a 5 by 5 km fishnet grid and regression. Dallas had the highest summer land surface temperature, 47.5 &deg;C in 2022.</p>
+        <p class="who">Fabiha Shafi Mim and Mohamed H. Aly, University of Arkansas</p>
+        <ul class="chips"><li>Landsat 8 and 9</li><li>Land surface temperature</li><li>NDVI and NDBI</li><li>Regression</li></ul>
+        <p style="font-size:.9rem">Southwest Association of American Geographers &bull; <a href="V2Fabiha_SWAAG_Poster.pdf" target="_blank" rel="noopener">Download PDF Poster</a></p>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+<section class="block" id="cartography"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="k">Cartography</span><h2>Personal Projects</h2></div>
+    <p>Thematic maps made for practice and for the pleasure of the layout. Click any map to enlarge it.</p>
+  </div>
+  <div class="gallery">
+    <figure class="map">
+      <button class="frame" data-full="images/kansas-city-transit.jpg" data-alt="Kansas City Rapid Transit System map with six colored lines and a legend" aria-label="View Kansas City Rapid Transit System at full size">
+        <img src="images/kansas-city-transit.jpg" alt="Kansas City Rapid Transit System map with six colored lines and a legend" width="1700" height="2200" loading="lazy">
+      </button>
+      <figcaption><span class="tag">Transit</span><h3>Kansas City Rapid Transit System</h3><p>A conceptual six-line rapid transit network for the Kansas City metro, with transfer hubs and a rush-hour extension to Smithville.</p></figcaption>
+    </figure>
+    <figure class="map">
+      <button class="frame" data-full="images/mid-atlantic-ridge-bathymetry.jpg" data-alt="Bathymetry map of the Mid-Atlantic Ridge with shaded contour lines from deep blue to yellow-green" aria-label="View Bathymetry of the Mid-Atlantic Ridge at full size">
+        <img src="images/mid-atlantic-ridge-bathymetry.jpg" alt="Bathymetry map of the Mid-Atlantic Ridge with shaded contour lines from deep blue to yellow-green" width="2000" height="1546" loading="lazy">
+      </button>
+      <figcaption><span class="tag">Bathymetry</span><h3>Bathymetry of the Mid-Atlantic Ridge</h3><p>Shaded contour lines trace the ridge and the basins around it, with a color ramp from deep blue to yellow-green.</p></figcaption>
+    </figure>
+    <figure class="map">
+      <button class="frame" data-full="images/rmnp-facilities.jpg" data-alt="Rocky Mountain National Park map showing trails, restrooms, visitor centers and backcountry campsites" aria-label="View Rocky Mountain National Park Facilities at full size">
+        <img src="images/rmnp-facilities.jpg" alt="Rocky Mountain National Park map showing trails, restrooms, visitor centers and backcountry campsites" width="1700" height="2200" loading="lazy">
+      </button>
+      <figcaption><span class="tag">Park recreation</span><h3>Rocky Mountain National Park: Facilities</h3><p>Restrooms, visitor centers and backcountry campsites along the park's trail network.</p></figcaption>
+    </figure>
+    <figure class="map">
+      <button class="frame" data-full="images/africa-historic-cities.jpg" data-alt="Vintage-style map of Africa with historic cities marked by orange dots and blue labels" aria-label="View Historic Cities of Africa at full size">
+        <img src="images/africa-historic-cities.jpg" alt="Vintage-style map of Africa with historic cities marked by orange dots and blue labels" width="2000" height="1546" loading="lazy">
+      </button>
+      <figcaption><span class="tag">Historical</span><h3>Historic Cities of Africa</h3><p>A parchment-toned base map marking cities from Tangier and Timbuktu to Kano, Aksum, Zanzibar and Cape Town.</p></figcaption>
+    </figure>
+    <figure class="map">
+      <button class="frame" data-full="images/us-political-map.jpg" data-alt="Political map of the United States with color-coded states on a watercolor base" aria-label="View US Political Map at full size">
+        <img src="images/us-political-map.jpg" alt="Political map of the United States with color-coded states on a watercolor base" width="2000" height="1546" loading="lazy">
+      </button>
+      <figcaption><span class="tag">Political</span><h3>US Political Map</h3><p>The states in a soft four-color scheme over a textured relief base with dotted graticule lines.</p></figcaption>
+    </figure>
+    <figure class="map">
+      <button class="frame" data-full="images/rmnp-scenic-spots.jpg" data-alt="Rocky Mountain National Park scenic spots map showing trails, glaciers and summits on a lavender and pink palette" aria-label="View Rocky Mountain National Park Scenic Spots at full size">
+        <img src="images/rmnp-scenic-spots.jpg" alt="Rocky Mountain National Park scenic spots map showing trails, glaciers and summits on a lavender and pink palette" width="1700" height="2200" loading="lazy">
+      </button>
+      <figcaption><span class="tag">Park recreation</span><h3>Rocky Mountain National Park: Scenic Spots</h3><p>Summits and glaciers alongside the park's trails, in a lavender and pink palette.</p></figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section class="block alt" id="credentials"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="k">Licenses and certifications</span><h2>Certifications</h2></div>
+    <p>Training and certificates that back up my fieldwork and analysis. Click a certificate to see it in full.</p>
+  </div>
+  <div class="certs">
+    <article class="cert">
+      <button class="frame" data-full="images/cert-trust-uav.jpg" data-alt="FAA Recreational UAS Safety Test (TRUST) completion certificate for Fabiha Shafi Mim, issued by Embry-Riddle Aeronautical University" aria-label="View the TRUST UAV certificate at full size">
+        <img class="fit" src="images/cert-trust-uav.jpg" alt="FAA Recreational UAS Safety Test (TRUST) completion certificate for Fabiha Shafi Mim, issued by Embry-Riddle Aeronautical University" width="1101" height="725" loading="lazy">
+      </button>
+      <div class="info">
+        <span class="badge">Drone safety &middot; FAA TRUST</span>
+        <h3>UAV Safety Certified</h3>
+        <p>Passed the FAA's Recreational UAS Safety Test (TRUST) for unmanned aerial vehicles, covering aeronautical knowledge, airspace rules and safe flying practice.</p>
+        <ul class="chips"><li>Unmanned aerial vehicles (UAV)</li><li>Airspace awareness</li><li>Flight safety</li><li>FAA</li></ul>
+        <p class="issuer">Issued by Embry-Riddle Aeronautical University, 2025</p>
+      </div>
+    </article>
+    <article class="cert">
+      <button class="frame" data-full="images/sghs%20CERTIFICATE_page-0001.jpg" data-alt="Certificate of attendance and participation for the Workshop on Higg Index FEM (Environmental Facility Module), awarded to Fabiha Shafi Mim" aria-label="View the Higg Index FEM certificate at full size">
+        <img src="images/cert-higg-sustainability.jpg" alt="Certificate of attendance and participation for the Workshop on Higg Index FEM (Environmental Facility Module), awarded to Fabiha Shafi Mim" width="1236" height="1748" loading="lazy">
+      </button>
+      <div class="info">
+        <span class="badge">Sustainability &middot; Higg Index</span>
+        <h3>Environmental Sustainability Certificate</h3>
+        <p>Completed a workshop on the Higg Index Facility Environmental Module (FEM), a framework for measuring and improving the environmental performance of facilities.</p>
+        <ul class="chips"><li>Environmental sustainability</li><li>Higg Index FEM</li><li>Facility assessment</li><li>Environmental management</li></ul>
+        <p class="issuer">Issued by GSCS International at Jahangirnagar University, 2020</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+<section class="block" id="about"><div class="wrap">
+  <div class="sec-head">
+    <div><span class="k">Background</span><h2>About Me</h2></div>
+  </div>
+  <div class="about">
+    <div>
+      <div class="exp">
+        <div><h4>Data Science Research Intern, ASRI</h4><p>NSF EPSCoR project on how storms affect property damage across the United States, using NOAA data, Python and ANOVA.</p></div>
+        <div><h4>Graduate Teaching Assistant, University of Arkansas</h4><p>Supported 100+ students in geospatial applications and geodatabases, including GNSS, SQL and topology.</p></div>
+        <div><h4>Climate Change Intern, Ministry of Environment and Climate Change, Bangladesh</h4><p>Water quality monitoring, wastewater planning and adaptation strategies for disaster mitigation.</p></div>
+      </div>
+      <p class="big">I'm a Geospatial Engineer with an M.S. in Geospatial Science from the University of Arkansas. I combine geospatial technologies, remote sensing, and programming to explore environmental patterns, analyze spatial challenges, and turn complex data into meaningful visual stories.</p>
+      <p class="more"><a class="btn ghost" href="#resume">See the full resume</a></p>
+    </div>
+    <div class="skillset">
+      <div><h4>Spatial analysis</h4><ul class="chips"><li>ArcGIS Pro</li><li>ArcGIS Online</li><li>ArcGIS Enterprise</li><li>Google Earth Engine</li><li>SNAP</li></ul></div>
+      <div><h4>Programming</h4><ul class="chips"><li>Python</li><li>R</li><li>JavaScript</li><li>SQL</li></ul></div>
+      <div><h4>Data and methods</h4><ul class="chips"><li>Remote sensing</li><li>Geodatabases</li><li>Statistical analysis</li><li>GNSS</li><li>UAV</li></ul></div>
+      <div><h4>Design and reporting</h4><ul class="chips"><li>Adobe Illustrator</li><li>Canva</li><li>LaTeX</li><li>MS Office</li><li>Google Workspace</li></ul></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <span class="k">Contact</span>
+  <h2>Let's Work Together</h2>
+  <p>I'm always open to new career opportunities, collaborations, and exciting projects in GIS, remote sensing, and geospatial analytics. Let's connect and create meaningful impact together!</p>
+  <ul class="reach">
+    <li><a href="mailto:fabihashafimim@gmail.com"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></span><span class="t"><b>Email</b><i>fabihashafimim@gmail.com</i></span></a></li>
+    <li><a href="mailto:fmim@uark.edu"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#13302a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6.5l9 7 9-7"/></svg></span><span class="t"><b>University Email</b><i>fmim@uark.edu</i></span></a></li>
+    <li><a href="https://www.linkedin.com/in/fabiha-shafi-mim/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><span class="t"><b>LinkedIn</b><i>linkedin.com/in/fabiha-shafi-mim</i></span></a></li>
+    <li><a href="Fabiha_Mim_Resume.pdf" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#7d3828" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 2.5V8h5"/><path d="M9 13h6M9 17h6"/></svg></span><span class="t"><b>Resume</b><i>Download the PDF</i></span></a></li>
+  </ul>
+  <a class="readhere" href="#resume">Read the resume on this page</a>
+  <div class="foot"><span>&copy; 2026 Fabiha Shafi Mim</span><span>All maps and posters by Fabiha</span></div>
+</div></section>
+
+</div>
+
+<div id="viewResume" hidden>
+<div class="wrap">
+  <a class="back" href="#top">&larr; Back to portfolio</a>
+  <section class="resume" id="resume">
+    <div class="resume-head">
+      <h2>Resume</h2>
+      <a class="button" href="Fabiha_Mim_Resume.pdf" target="_blank" rel="noopener">View resume (PDF)</a>
+    </div>
+
+    <div class="res-row">
+      <h3>Experience</h3>
+      <div class="entries">
+        <div class="entry">
+          <div class="line"><h4>Data Science Research Intern</h4><span class="when2">May 2026 to Jun 2026</span></div>
+          <p class="org">Arkansas Summer Research Institute (ASRI), virtual</p>
+          <ul>
+            <li>Worked on an NSF EPSCoR-funded project quantifying how convective and synoptic storm events affect property damage across the United States, using NOAA weather datasets.</li>
+            <li>Co-developed a Python-based predictive framework for large-scale meteorological and hazard analytics, using Pandas and Matplotlib for visualization and ANOVA for statistical validation toward a scientific publication.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="line"><h4>Graduate Teaching Assistant, Geospatial Applications</h4><span class="when2">Aug 2024 to May 2026</span></div>
+          <p class="org">Department of Geosciences, University of Arkansas, Fayetteville</p>
+          <ul>
+            <li>Assisted over 100 students with lab exercises on managing complex geospatial datasets, including GNSS integration for transportation network modeling and geospatial programming.</li>
+            <li>Contributed to the design of GIS-based statistical methods that support data-driven safety interventions.</li>
+            <li>Supported curriculum development, grading and final grade preparation.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="line"><h4>Graduate Teaching Assistant, Introduction to Geodatabase</h4><span class="when2">Aug 2025 to Dec 2025</span></div>
+          <p class="org">Department of Geosciences, University of Arkansas, Fayetteville</p>
+          <ul>
+            <li>Supported geodatabase maintenance, schema design, SQL queries and topology management.</li>
+            <li>Helped manage relational geodatabases and feature classes for spatial analysis of roadway datasets.</li>
+            <li>Assisted with troubleshooting, versioning, editing workflows, and data standardization and validation.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="line"><h4>Climate Change Intern</h4><span class="when2">Nov 2022</span></div>
+          <p class="org">Ministry of Environment and Climate Change, Bangladesh</p>
+          <ul>
+            <li>Worked on water quality monitoring, wastewater treatment, ETP-based planning and community-based alternative methods to support planning and project evaluation.</li>
+            <li>Developed and applied adaptive strategies for disaster mitigation to improve public safety and infrastructure resilience.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-row">
+      <h3>Education</h3>
+      <div class="entries">
+        <div class="entry">
+          <div class="line"><h4>MS in Geospatial Science</h4><span class="when2">Aug 2024 to Jul 2026</span></div>
+          <p class="org">University of Arkansas, Fayetteville</p>
+          <p class="note">CGPA 4.0 / 4.0</p>
+        </div>
+        <div class="entry">
+          <div class="line"><h4>M.Sc. in Environmental Sciences</h4><span class="when2">Mar 2021 to Jun 2023</span></div>
+          <p class="org">Jahangirnagar University</p>
+          <p class="note">CGPA 3.78 / 4.00</p>
+        </div>
+        <div class="entry">
+          <div class="line"><h4>B.Sc. in Environmental Sciences</h4><span class="when2">Sep 2016 to Feb 2021</span></div>
+          <p class="org">Jahangirnagar University</p>
+          <p class="note">CGPA 3.52 / 4.00</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-row">
+      <h3>Technical skills</h3>
+      <dl class="skills">
+        <dt>Spatial analysis</dt><dd>ArcGIS Pro, ArcGIS Online, Google Earth Engine, SNAP</dd>
+        <dt>Enterprise systems</dt><dd>Workday, ArcGIS Enterprise, Google Workspace</dd>
+        <dt>Programming</dt><dd>Python, R Studio, JavaScript</dd>
+        <dt>Design and reporting</dt><dd>Adobe, Canva, LaTeX, Illustrator, MS Word, MS PowerPoint, Microsoft Excel, Google Docs</dd>
+        <dt>Coursework</dt><dd>Environmental Engineering, GIS Analysis and Modeling, Unmanned Aircraft Systems (UAV), Statistical Methods</dd>
+      </dl>
+    </div>
+
+    <div class="res-row">
+      <h3>Publications</h3>
+      <div class="entries">
+        <div class="entry">
+          <div class="line"><h4>LST mapping and thermal hotspot modeling using remote sensing and geospatial programming in Texas</h4><span class="when2">Mar 2026</span></div>
+          <p class="org">F. S. Mim, M. H. Aly. AAG Annual Meeting, 2026</p>
+        </div>
+        <div class="entry">
+          <div class="line"><h4>Operational flood hazard mapping and impact assessment in Bangladesh using Sentinel-1, MODIS, and Google Earth Engine</h4><span class="when2">Mar 2025</span></div>
+          <p class="org">F. S. Mim, M. H. Aly. GSA Southcentral Sectional Meeting, 2025</p>
+        </div>
+        <div class="entry">
+          <div class="line"><h4>Assessment of radiation hazard in indoor and outdoor environment of DMCH campus by in-situ method</h4><span class="when2">Mar 2020</span></div>
+          <p class="org">F. S. Mim, M. S. Rahman, S. M. Tareq, S. Yeasmin. International Conference on Physics, 2020</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-row">
+      <h3>Awards</h3>
+      <div class="entries">
+        <div class="entry"><div class="line"><h4>Geovision Scholarship</h4><span class="when2">Aug 2025 to May 2026</span></div></div>
+        <div class="entry"><div class="line"><h4>Jack D Mussett Scholarship</h4><span class="when2">Aug 2024 to May 2025</span></div></div>
+        <div class="entry"><div class="line"><h4>National Science and Technology Fellowship, Ministry of Science and Technology, Bangladesh</h4><span class="when2">Dec 2022</span></div></div>
+        <div class="entry"><div class="line"><h4>Academic scholarship</h4><span class="when2">May 2016 to Jun 2019</span></div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<section class="contact" style="margin-top:0"><div class="wrap">
+  <span class="k">Contact</span>
+  <h2>Let's Work Together</h2>
+  <ul class="reach">
+    <li><a href="mailto:fabihashafimim@gmail.com"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></span><span class="t"><b>Email</b><i>fabihashafimim@gmail.com</i></span></a></li>
+    <li><a href="mailto:fmim@uark.edu"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#13302a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6.5l9 7 9-7"/></svg></span><span class="t"><b>University Email</b><i>fmim@uark.edu</i></span></a></li>
+    <li><a href="https://www.linkedin.com/in/fabiha-shafi-mim/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><span class="t"><b>LinkedIn</b><i>linkedin.com/in/fabiha-shafi-mim</i></span></a></li>
+    <li><a href="Fabiha_Mim_Resume.pdf" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#7d3828" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 2.5V8h5"/><path d="M9 13h6M9 17h6"/></svg></span><span class="t"><b>Resume</b><i>Download the PDF</i></span></a></li>
+  </ul>
+  <div class="foot"><span>&copy; 2026 Fabiha Shafi Mim</span><span>All maps and posters by Fabiha</span></div>
+</div></section>
+</div>
+
+<div class="lb" id="lb" hidden>
+  <button type="button" id="lbClose">Close</button>
+  <img id="lbImg" alt="">
+  <a id="lbPdf" href="#" target="_blank" rel="noopener" hidden>Open the PDF version</a>
+</div>
+
+<script>
+  (function () {
+    var lb = document.getElementById('lb');
+    var img = document.getElementById('lbImg');
+    var pdfLink = document.getElementById('lbPdf');
+    var last = null;
+    function open(btn) {
+      last = btn;
+      img.src = btn.getAttribute('data-full');
+      img.alt = btn.getAttribute('data-alt') || '';
+      var pdf = btn.getAttribute('data-pdf');
+      pdfLink.hidden = !pdf;
+      if (pdf) pdfLink.href = pdf;
+      lb.hidden = false;
+      document.getElementById('lbClose').focus();
+    }
+    function close() {
+      lb.hidden = true;
+      img.removeAttribute('src');
+      if (last) last.focus();
+    }
+    document.querySelectorAll('button.frame').forEach(function (b) {
+      b.addEventListener('click', function () { open(b); });
+    });
+    lb.addEventListener('click', function (e) { if (e.target !== img && e.target !== pdfLink) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+
+    var home = document.getElementById('viewHome');
+    var res = document.getElementById('viewResume');
+    function route() {
+      var h = location.hash.slice(1);
+      var isRes = h === 'resume';
+      home.hidden = isRes;
+      res.hidden = !isRes;
+      if (isRes) { window.scrollTo(0, 0); return; }
+      var el = h ? document.getElementById(h) : null;
+      if (el) { el.scrollIntoView(); } else { window.scrollTo(0, 0); }
+    }
+    window.addEventListener('hashchange', route);
+    route();
+
+    var links = {};
+    document.querySelectorAll('.bar nav a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if ('IntersectionObserver' in window) {
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+          if (links[e.target.id]) links[e.target.id].classList.add('on');
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      ['work', 'presentations', 'cartography', 'credentials', 'about', 'contact'].forEach(function (id) {
+        var s = document.getElementById(id);
+        if (s) spy.observe(s);
+      });
+      if (!reduce) {
+        document.documentElement.classList.add('js');
+        var vh = window.innerHeight;
+        var sel = '#viewHome .sec-head, #viewHome .feature, #viewHome .talk, #viewHome .cert, #viewHome .map, #viewHome .about > div, #viewHome .contact .wrap > *';
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll(sel).forEach(function (el) {
+          if (el.getBoundingClientRect().top > vh) {
+            var sibs = Array.prototype.filter.call(el.parentNode.children, function (n) { return n.matches(sel); });
+            el.style.setProperty('--d', (Math.min(sibs.indexOf(el), 4) * 0.09) + 's');
+            el.classList.add('rv');
+            io.observe(el);
+          }
+        });
+      }
+    }
+  })();
+</script>
+
+</body>
+</html>
